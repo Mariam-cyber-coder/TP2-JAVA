@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>TP2 - Question 2</title>
+  <style>
+    #monParagraphe {
+      padding: 10px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+<button id="monBouton">Masquer</button>
+<p id="monParagraphe">le paragraphe a afficher ou masquer</p>
+<script>
+  let bouton=document.getElementById("monBouton");
+  let paragraphe=document.getElementById("monParagraphe");
+  let temp = true;
+    bouton.addEventListener("click", function() {
+      if(temp){
+        paragraphe.style.display="none";
+        bouton.textContent="Afficher";
+       estVisible = false;
+      } else {
+        paragraphe.style.display = "block";
+        bouton.textContent = "Masquer"; 
+        estVisible = true;
+      }
+    });
+    </script>
+</body>
+</html>

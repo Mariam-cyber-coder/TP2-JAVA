@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>TP2 - Question 15 (Thème Clair/Sombre)</title>
+  <style>
+    body {
+      background-color: white;
+      color: black;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .dark-theme {
+      background-color: #121212;
+      color: white;
+    }
+    button {
+      padding: 10px 15px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Basculer entre Thème Clair et Sombre</h2>
+  <p>Cliquez sur le bouton ci-dessous pour changer l'apparence de la page.</p>
+
+  <button id="btnTheme">Activer le Thème Sombre</button>
+
+  <script>
+    let btn = document.getElementById("btnTheme");
+    let body = document.body;
+
+    btn.addEventListener("click", function() {
+  
+      if (body.classList.contains("dark-theme")) {
+        body.classList.remove("dark-theme"); 
+        btn.textContent = "Activer le Thème Sombre"; 
+      } else {
+        body.classList.add("dark-theme");
+        btn.textContent = "Activer le Thème Clair";
+      }
+    });
+  </script>
+
+</body>
+</html>

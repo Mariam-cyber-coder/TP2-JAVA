@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>TP2 - Question 9 (To-do List)</title>
+  <style>
+     .todo-container {
+      width: 350px;
+      border: 2px solid #000;
+      padding: 15px;
+      font-family: Arial, sans-serif;
+    }
+    input[type="text"] {
+      width: 200px;
+      padding: 5px;
+    }
+    button {
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    .btn-supprimer {
+      margin-left: 10px;
+    }
+  </style>
+   </head>
+   <body>
+
+  <div class="todo-container">
+     <input type="text" id="nouvelleTache" placeholder="Ajouter une tâche">
+    <button onclick="ajouterTache()">Ajouter</button>
+        <ul id="listeTaches">
+      <li>
+        étudier Angular 
+        <button class="btn-supprimer" onclick="supprimerTache(this)">Supprimer</button>
+      </li>
+      <li>
+        manger 
+        <button class="btn-supprimer" onclick="supprimerTache(this)">Supprimer</button>
+      </li>
+      <li>
+        faire la sieste 
+        <button class="btn-supprimer" onclick="supprimerTache(this)">Supprimer</button>
+      </li>
+    </ul>
+  </div>
+  <script>
+      function ajouterTache() {
+      let input = document.getElementById("nouvelleTache");
+      let texteTache = input.value;
+
+      if (texteTache !== "") {
+        let ul = document.getElementById("listeTaches");
+
+        
+        
+        let li = document.createElement("li");
+        li.textContent = texteTache + " ";
+
+        
+        let btn = document.createElement("button");
+        btn.textContent = "Supprimer";
+        btn.className = "btn-supprimer";
+        btn.onclick = function() {
+          supprimerTache(btn);
+        };
+    li.appendChild(btn);
+        ul.appendChild(li);
+        input.value = "";
+      }
+    }
+    function supprimerTache(bouton) {
+      let li = bouton.parentNode; 
+      let ul = li.parentNode; 
+      ul.removeChild(li); 
+    }
+  </script>
+
+</body>
+</html>

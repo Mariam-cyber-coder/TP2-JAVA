@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>TP2 - Question 4 (Partie 1)</title>
+  <style>
+    .calculateur {
+      border: 1px solid #ccc;
+      padding: 20px;
+      width: 250px;
+      border-radius: 5px;
+    }
+    input {
+      width: 90%;
+      margin-bottom: 10px;
+      padding: 5px;
+    }
+    button {
+      padding: 5px 10px;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+    #resultat {
+      font-weight: bold;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Calculateur simple</h2>
+  <div class="calculateur">
+    <input type="number" id="num1" placeholder="Premier nombre"><br>
+    <input type="number" id="num2" placeholder="Deuxième nombre"><br><br>
+
+    <button onclick="calculer('+')">+</button>
+    <button onclick="calculer('-')">-</button>
+    <button onclick="calculer('*')"></button>
+    <button onclick="calculer('/')">/</button>
+
+    <div id="resultat">Résultat : </div>
+  </div>
+
+  <script>
+    function calculer(operation) {
+
+      let n1 = parseFloat(document.getElementById("num1").value);
+      let n2 = parseFloat(document.getElementById("num2").value);
+      let resElement = document.getElementById("resultat");
+
+      if (isNaN(n1) || isNaN(n2)) {
+        resElement.textContent = "Veuillez entrer deux nombres valides.";
+        return;
+      }
+
+      let res = 0;
+
+      if (operation === '+') {
+        res = n1 + n2;
+      } else if (operation === '-') {
+        res = n1 - n2;
+      } else if (operation === '*') {
+        res = n1 * n2;
+      } else if (operation === '/') {
+        if (n2 === 0) {
+          resElement.textContent = "Erreur : Division par zéro !";
+          return;
+        }
+        res = n1 / n2;
+      }
+
+   
+      resElement.textContent = "Résultat : " + res;
+    }
+  </script>
+
+</body>
+</html>

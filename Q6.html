@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>TP2 - Question 6 (Menu Déroulant)</title>
+  <style>
+    .menu {
+      width: 200px;
+      font-family: Arial, sans-serif;
+    }
+    .titre-menu {
+      background-color: #007bff;
+      color: white;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      text-align: center;
+      font-weight: bold;
+    }
+ .contenu-menu {
+      display: none;
+      background-color: #f8f9fa;
+      border: 1px solid #ddd;
+      border-radius: 0 0 5px 5px;
+    }
+</style>
+</head>
+<body>
+  <h2>Menu deroulant </h2>
+  <div class="menu">
+    <div id="titreMenu" class="titre-menu">Mon menu</div>
+    <div id="contenuMenu" class="contenu-menu">
+      <a href="#">Acceuil</a>
+      <a href="#">Services</a>
+      <a href="#">a propos</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+  <script>
+    let titre=document.getElementById("titreMenu");
+    let  contenu=document.getElementById("contenuMenu");
+       let estOuvert = false;
+  titre.addEventListener("click",function(){
+    if (estOuvert) {
+       contenu.style.display = "none";
+        titre.textContent = "Mon Menu ";
+        estOuvert = false;
+         } else {
+           contenu.style.display = "block";
+        titre.textContent = "Mon Menu ";
+        estOuvert = true;
+      }
+    });
+     </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+  

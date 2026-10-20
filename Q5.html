@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>TP2 - Question 5 (Carousel)</title>
+  <style>
+    .carousel {
+      width: 300px;
+      text-align: center;
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    .carousel img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 8px 15px;
+      margin: 0 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Carousel d'images</h2>
+
+  <div class="carousel">
+    <img id="imageCarousel" src="https://via.placeholder.com/300x200/ff7f7f/333333?text=Image+1" alt="Image du carousel">
+    
+    <br>
+    <button id="btnPrecedent">Précédent</button>
+    <button id="btnSuivant">Suivant</button>
+  </div>
+
+  <script>
+
+    let images = [
+      "https://via.placeholder.com/300x200/ff7f7f/333333?text=Image+1",
+      "https://via.placeholder.com/300x200/7fbfff/333333?text=Image+2",
+      "https://via.placeholder.com/300x200/7fff7f/333333?text=Image+3"
+    ];
+    let index = 0;
+
+    let imgElement = document.getElementById("imageCarousel");
+    let btnSuivant = document.getElementById("btnSuivant");
+    let btnPrecedent = document.getElementById("btnPrecedent");
+    btnSuivant.addEventListener("click", function() {
+      index = index + 1;
+
+      if (index >= images.length) {
+        index = 0;
+      }
+            imgElement.setAttribute("src", images[index]);
+    });
+        btnPrecedent.addEventListener("click", function() {
+      index = index - 1;
+   
+      if (index < 0) {
+        index = images.length - 1;
+      }
+    
+      imgElement.setAttribute("src", images[index]);
+    });
+  </script>
+
+</body>
+</html>

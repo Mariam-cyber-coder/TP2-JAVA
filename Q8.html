@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>TP2 - Question 8 (Événements de souris)</title>
+    <style>
+    #maBoite {
+      width: 250px;
+      height: 250px;
+      background-color: #3498db; 
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background-color 0.3s; 
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Événements de souris</h2>
+  <div id="maBoite">Passez la souris ici</div>
+  <script>
+    let boite = document.getElementById("maBoite");
+    boite.addEventListener("mouseover", function() {
+      boite.style.backgroundColor = "#e74c3c"; 
+    });
+
+    boite.addEventListener("mouseout", function() {
+      boite.style.backgroundColor = "#3498db"; 
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>TP2 - Question 4 (Partie 2)</title>
+  <style>
+    .calculatrice {
+      width: 220px;
+      border: 2px solid #ccc;
+      padding: 10px;
+      border-radius: 8px;
+    }
+    #ecran {
+      width: 100%;
+      height: 40px;
+      font-size: 20px;
+      text-align: right;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      padding-right: 5px;
+    }
+    .grille {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 5px;
+    }
+    button {
+      height: 40px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2> calculatrice </h2>
+  <div class="calculatrice">
+<input type="text" id="ecran" readonly>
+<div class="grille">
+  <button onclick="effacer()">C</button>
+  <button onclck="effacerDernier()">⌫</button>
+  <button onclick="ajouter('/')">/</button>
+  <button onclick="ajouter('*')">*</button>
+
+  <button onclick="ajouter('7')">7</button>
+  <button onclick="ajouer('8')">8</button>
+<button onclick="ajouer('9')">9</button>
+ <button onclick="ajouter('-')">-</button>
+
+      <button onclick="ajouter('4')">4</button>
+      <button onclick="ajouter('5')">5</button>
+      <button onclick="ajouter('6')">6</button>
+      <button onclick="ajouter('+')">+</button>
+
+      <button onclick="ajouter('1')">1</button>
+      <button onclick="ajouter('2')">2</button>
+      <button onclick="ajouter('3')">3</button>
+      <button onclick="calculerResultat()">=</button>
+      <br><br>
+    
+      <button onclick="ajouter('0')" style="grid-column: span2;">0</button>
+      <button onclick="ajouter('.')">.</button>
+</div>
+  </div>
+  <script>
+  let ecran=document.getElementByid("ecran");
+let premierNombre = "";
+    let operation = "";
+    function ajouterChiffre(chiffre) {
+      ecran.value = ecran.value + chiffre;
+    } 
+    function effacer() {
+      ecran.value = "";
+      premierNombre = "";
+      operation = "";
+    }
+ function calculer() {
+      let n1 = parseFloat(premierNombre);
+      let n2 = parseFloat(ecran.value);
+      let resultat = 0;
+
+      if (operation === "+") {
+        resultat = n1 + n2;
+      } else if (operation === "-") {
+        resultat = n1 - n2;
+      } else if (operation === "*") {
+        resultat = n1 * n2;
+      } else if (operation === "/") {
+        if (n2 === 0) {
+          resultat = "Erreur";
+        } else {
+          resultat = n1 / n2;
+        }
+      }
+
+      ecran.value = resultat;
+    }
+  </script>
+
+
+
+
+
+</body>
+</html>

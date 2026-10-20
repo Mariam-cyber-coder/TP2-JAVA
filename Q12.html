@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>TP2 - Question 12 (Responsive JS)</title>
+  <style>
+    .container {
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      border: 2px solid #333;
+      border-radius: 8px;
+      text-align: center;
+    }
+  #infoMessage {
+      padding: 15px;
+      background-color: #3498db;
+      color: white;
+      font-size: 18px;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+      #sidebar {
+      padding: 10px;
+      background-color: #e74c3c;
+      color: white;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<div class="container">
+    <h2>Page Responsive avec JavaScript</h2>
+    <p>Redimensionnez la fenêtre de votre navigateur pour voir le changement.</p>
+     <div id="infoMessage">Grand écran détecté</div>
+    <div id="sidebar">Menu latéral </div>
+  </div>
+   <script>
+  
+    let infoMessage = document.getElementById("infoMessage");
+    let sidebar = document.getElementById("sidebar");
+
+    function adapterPage() {
+      let largeur = window.innerWidth;
+
+      if (largeur < 600) {
+        infoMessage.textContent = "Mode Mobile (Largeur : " + largeur + "px)";
+        infoMessage.style.backgroundColor = "#2ecc71"; 
+        sidebar.style.display = "none"; 
+      } else {
+                
+        infoMessage.textContent = "Mode Ordinateur (Largeur : " + largeur + "px)";
+        infoMessage.style.backgroundColor = "#3498db"; 
+        sidebar.style.display = "block"; 
+      }
+    }
+    window.addEventListener("resize", adapterPage);
+    adapterPage();
+  </script>
+
+</body>
+</html>

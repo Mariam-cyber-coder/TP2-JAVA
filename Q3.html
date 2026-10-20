@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>TP2 - Question 3</title>
+  <style>
+    .erreur {
+      color: red;
+      font-weight: bold;
+    }
+    .succes {
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Formulaire d'inscription</h2>
+  <form id="monFormulaire">
+    <label for="nom">Nom :</label><br />
+    <input type="text" id="nom" name="nom" /><br />
+
+    <label for="email">Email :</label><br />
+    <input type="text" id="email" name="email" /><br />
+    <button type="submit">Soumettre</button>
+  </form>
+    <p id="message"></p>
+  <script>
+     let formulaire = document.getElementById("monFormulaire");
+    let message = document.getElementById("message");
+formulaire.addEventListener("submit", function(event) {
+    let nom = document.getElementById("nom").value;
+      let email = document.getElementById("email").value;
+       if (nom === "" || email === "") {
+        message.textContent = "Veuillez remplir tous les champs !";
+        message.className = "erreur";
+      } else {
+        message.textContent = "Formulaire soumis avec succès pour " + nom + " !";
+        message.className = "succes";
+      }
+    });
+  </script>
+
+</body>
+</html>

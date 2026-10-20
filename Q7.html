@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>TP2 - Question 7 (Timer)</title>
+  <style>
+    .timer-container {
+      font-family: Arial, sans-serif;
+      border: 1px solid #ccc;
+      padding: 15px;
+      width: 280px;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    #temps {
+      font-weight: bold;
+      color: #007bff;
+    }
+  </style>
+</head<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>TP2 - Question 7 (Timer)</title>
+  <style>
+    .timer-container {
+      font-family: Arial, sans-serif;
+      border: 1px solid #ccc;
+      padding: 15px;
+      width: 280px;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    #temps {
+      font-weight: bold;
+      color: #007bff;
+    }
+  </style>
+</head>
+<body>
+<h2>timer</h2>
+<div class="timer-container">
+<p>Temps ecoule:<span id="temps">0</span>Secondes</p>
+
+</div>
+<script>
+let secondes=0;
+let tempsElement=document.getElementById("temps");
+setInterval(function(){
+secondes=secondes+1;
+tempsElement.textContent=secondes;
+ },1000 )
+</script>
+</body>
+</html>
